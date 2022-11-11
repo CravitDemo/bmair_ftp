@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+    
+    <record id="mrp_production_tree_view_bmair_change" model="ir.ui.view">
+            <field name="name">mrp.production.tree.inherit</field>
+            <field name="model">mrp.production</field>
+            <field name="inherit_id" ref="mrp.mrp_production_tree_view"/>
+        	<field name="arch" type="xml">
+            	<xpath expr="//field[@name='product_id']" position="after">
+			    	<field name="is_planned" string="Planned"/>
+			  	</xpath>
+        </field>
+    </record>
+    
+    <record id="mrp_workorder_view_form_inherit_workorder_te_inst" model="ir.ui.view">
+        <field name="name">mrp.workorder.view.form.inherit.workorder</field>
+        <field name="model">mrp.workorder</field>
+        <field name="inherit_id" ref="mrp.mrp_production_workorder_form_view_inherit"/>
+        <field name="arch" type="xml">
+            <field name="company_id" position="after">
+                <field name="wo_responsible_id" />
+            </field>
+        </field>
+    </record>
+    
+    <record id="mrp_workorder_view_form_tablet_te_inst" model="ir.ui.view">
+        <field name="name">mrp.workorder.view.form.inherit.workorder</field>
+        <field name="model">mrp.workorder</field>
+        <field name="inherit_id" ref="mrp_workorder.mrp_workorder_view_form_tablet"/>
+        <field name="arch" type="xml">
+            <field name="company_id" position="after">
+                <field name="wo_responsible_id"/>
+            </field>
+        </field>
+    </record>
+    
+    <record id="mrp_production_workorder_tree_view_inherit_te_inst" model="ir.ui.view">
+        <field name="name">mrp.workorder.view.form.inherit.workorder</field>
+        <field name="model">mrp.workorder</field>
+        <field name="inherit_id" ref="mrp.mrp_production_workorder_tree_editable_view"/>
+        <field name="arch" type="xml">
+            <field name="company_id" position="after">
+                <field name="wo_responsible_id" />
+            </field>
+        </field>
+    </record>
+    
+    <record model="ir.ui.view" id="view_mrp_production_workorder_form_view_filter">
+        <field name="name">mrp.production.work.order.tree</field>
+        <field name="model">mrp.workorder</field>
+        <field name="inherit_id" ref="mrp.view_mrp_production_workorder_form_view_filter"/>
+        <field name="arch" type="xml">
+            <filter name="late" position="before">
+                <filter string="My Work Orders" domain="[('wo_responsible_id', '=', uid)]" name="my_work_orders"/>
+            </filter>
+        </field>
+    </record>
+    
+    <record model="ir.actions.act_window" id="mrp.action_mrp_workorder_production">
+        <field name="name">Work Orders Planning</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">mrp.workorder</field>
+        <field name="domain">[('production_state','not in',('done','cancel'))]</field>
+        <field name="view_mode">gantt,tree,form,calendar,pivot,graph</field>
+        <field name="search_view_id" ref="mrp.view_mrp_production_workorder_form_view_filter"/>
+        <field name="view_id" ref="mrp.workcenter_line_gantt_production"/>
+        <field name="context">{'search_default_my_work_orders': 1,'search_default_production': True, 'search_default_ready': True, 'search_default_progress': True, 'search_default_pending': True}</field>
+        <field name="help" type="html">
+          <p class="o_view_nocontent_smiling_face">
+            Start a new work order
+          </p><p>
+            To manufacture or assemble products, and use components and
+            finished products you must also handle manufacturing operations.
+            Manufacturing operations are often called Work Orders. The various
+            operations will have different impacts on the costs of
+            manufacturing and planning depending on the available workload.
+          </p>
+        </field>
+    </record>
+    
+    <record model="ir.actions.act_window" id="mrp.mrp_workorder_todo">
+        <field name="name">Work Orders</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">mrp.workorder</field>
+        <field name="view_mode">tree,kanban,form,calendar,pivot,graph,gantt</field>
+        <field name="search_view_id" ref="mrp.view_mrp_production_workorder_form_view_filter"/>
+        <field name="context">{'search_default_my_work_orders': 1,'search_default_ready': True, 'search_default_progress': True, 'search_default_pending': True}</field>
+        <field name="help" type="html">
+          <p class="o_view_nocontent_smiling_face">
+            Start a new work order
+          </p><p>
+            Work Orders are operations to be processed at a Work Center to realize a
+            Manufacturing Order. Work Orders are trigerred by Manufacturing Orders,
+            they are based on the Routing defined on these ones
+            </p>
+        </field>
+    </record>
+    
+    
+    <record id="view_mrp_production_work_order_search_te_inst" model="ir.ui.view">
+        <field name="name">mrp.production.work.order.search</field>
+        <field name="model">mrp.workorder</field>
+        <field name="inherit_id" ref="mrp.view_mrp_production_work_order_search"/>
+        <field name="arch" type="xml">
+            <filter name="late" position="before">
+                <filter string="My Work Orders" domain="[('wo_responsible_id', '=', uid)]" name="my_work_orders"/>
+            </filter>
+        </field>
+    </record>
+    
+    <record id="mrp.action_mrp_routing_time" model="ir.actions.act_window">
+        <field name="name">Work Orders</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">mrp.workorder</field>
+        <field name="view_mode">graph,pivot,tree,form,gantt,calendar</field>
+        <field name="context">{'search_default_my_work_orders': 1,'search_default_done': True}</field>
+        <field name="search_view_id" ref="mrp.view_mrp_production_work_order_search"/>
+        <field name="domain">[('production_id.routing_id', '=', active_id), ('state', '=', 'done')]</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_empty_folder">
+              No data to display
+            </p><p>
+              You will get here statistics about the
+              work orders duration related to this routing.
+            </p>
+        </field>
+    </record>
+    
+    <record id="mrp.action_mrp_routing_time" model="ir.actions.act_window">
+        <field name="name">Work Orders</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">mrp.workorder</field>
+        <field name="view_mode">graph,pivot,tree,form,gantt,calendar</field>
+        <field name="context">{'search_default_my_work_orders': 1,'search_default_done': True}</field>
+        <field name="search_view_id" ref="mrp.view_mrp_production_work_order_search"/>
+        <field name="domain">[('production_id.routing_id', '=', active_id), ('state', '=', 'done')]</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_empty_folder">
+              No data to display
+            </p><p>
+              You will get here statistics about the
+              work orders duration related to this routing.
+            </p>
+        </field>
+    </record>
+    
+    <record model="ir.actions.act_window" id="mrp.action_mrp_workorder_production_specific">
+        <field name="name">Work Orders</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">mrp.workorder</field>
+        <field name="view_mode">tree,form,gantt,calendar,pivot,graph</field>
+        <field name="domain">[('production_id', '=', active_id)]</field>
+        <field name="context">{'search_default_my_work_orders': 1,'search_default_done': True}</field>
+        <field name="help" type="html">
+          <p class="o_view_nocontent_smiling_face">
+            Start a new work order
+          </p><p>
+            Work Orders are operations to be processed at a Work Center to realize a
+            Manufacturing Order. Work Orders are trigerred by Manufacturing Orders,
+            they are based on the Routing defined on these ones
+            </p>
+        </field>
+    </record>
+    
+    <record model="ir.actions.act_window" id="mrp.mrp_workorder_todo">
+        <field name="name">Work Orders</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">mrp.workorder</field>
+        <field name="view_mode">tree,kanban,form,calendar,pivot,graph,gantt</field>
+        <field name="search_view_id" ref="mrp.view_mrp_production_workorder_form_view_filter"/>
+        <field name="context">{'search_default_my_work_orders': 1,'search_default_ready': True, 'search_default_progress': True, 'search_default_pending': True}</field>
+        <field name="help" type="html">
+          <p class="o_view_nocontent_smiling_face">
+            Start a new work order
+          </p><p>
+            Work Orders are operations to be processed at a Work Center to realize a
+            Manufacturing Order. Work Orders are trigerred by Manufacturing Orders,
+            they are based on the Routing defined on these ones
+            </p>
+        </field>
+    </record>
+    
+<!--     <record model="ir.actions.act_window" id="mrp_workorder.mrp_workorder_action_tablet"> -->
+<!--         <field name="name">Work Orders</field> -->
+<!--         <field name="type">ir.actions.act_window</field> -->
+<!--         <field name="res_model">mrp.workorder</field> -->
+<!--         <field name="view_mode">kanban,tree,form</field> -->
+<!--         <field name="view_ids" eval="[(5, 0, 0), -->
+<!--              (0, 0, {'view_mode': 'kanban', 'view_id': ref('mrp.workcenter_line_kanban')}), -->
+<!--              (0, 0, {'view_mode': 'tree', 'view_id': ref('mrp.mrp_production_workorder_tree_view_inherit')}), -->
+<!--              (0, 0, {'view_mode': 'form', 'view_id': ref('mrp_workorder.mrp_workorder_view_form_tablet')})]"/> -->
+<!--         <field name="target">fullscreen</field> -->
+<!--         <field name="domain">[('state', 'not in', ['done', 'cancel'])]</field> -->
+<!--         <field name="context">{'search_default_my_work_orders': 1,'search_default_workcenter_id': active_id}</field> -->
+<!--         <field name="help" type="html"> -->
+<!--             <p class="o_view_nocontent_smiling_face"> -->
+<!--                 Start a new work order -->
+<!--             </p><p> -->
+<!--                 Plan some work orders from your manufacturing orders. -->
+<!--             </p> -->
+<!--         </field> -->
+<!--     </record> -->
+    
+    
+        
+    </data>
+</odoo>

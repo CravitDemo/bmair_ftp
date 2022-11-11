@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+    
+     <template id="report_picking" inherit_id="stock.report_picking">
+            <xpath expr="//h1[@t-field='o.name']" position="replace">
+            	<div class="row mt48 mb32">
+                    <div class="col-auto" name="div_name">
+                        <h1 t-field="o.name" class="mt0 float-left"/>
+                    </div>
+                    <div t-if="o.origin"  class="col-auto" name="div_product">
+                        <strong>Product:</strong>
+                        <p t-field="o.mo_product_id"/>
+                    </div>
+                    <div class="col-auto" name="div_qty">
+                        <strong>Qty:</strong>
+                        <p t-field="o.mo_qty"/>
+                    </div>
+                </div>
+			  </xpath>
+	</template>
+    </data>
+</odoo>

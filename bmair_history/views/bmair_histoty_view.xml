@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+        <record id="view_bmair_history_tree" model="ir.ui.view">
+            <field name="name">view.bmair.history.tree</field>
+            <field name="model">bmair.history</field>
+            <field name="arch" type="xml">
+                <tree string="Bmair History" create="false">
+                    <field name="sel_model"/>
+                    <field name="record_id"/>
+                    <field name="record_name"/>
+                  	<field name="create_date" string="Modified on"/>
+                  	<field name="modification_user_id"/>
+                    <field name="company_id"/>
+                  	<field name="field_name"/>
+                  	<field name="old_value"/>
+                  	<field name="new_value"/>
+                </tree>
+            </field>
+        </record>
+        
+        <record id="view_bmair_history_form" model="ir.ui.view">
+            <field name="name">view.bmair.history.form</field>
+            <field name="model">bmair.history</field>
+            <field name="arch" type="xml">
+                <form create="false" edit="false">
+                    <sheet string="Bmair History">
+                        <group>
+                            <group>
+                            	<field name="sel_model"/>
+                                <field name="record_id"/>
+                                <field name="record_name"/>
+                                <field name="create_date"/>
+                            	<field name="modification_user_id"/>
+                            </group>
+                            <group>
+                            	<field name="old_value"/>
+                            	<field name="new_value"/>
+                            	<field name="field_name"/>
+                                <field name="trigger_function" invisible="1"/>
+                                <field name="co_model_name" invisible="1"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        
+        <record id="action_bmair_history" model="ir.actions.act_window">
+            <field name="name">BMAir Log</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">bmair.history</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        
+    <menuitem id="menu_action_bmair_history"
+            name="BMAir Log"
+            action="action_bmair_history"
+            parent="base.menu_users"
+            sequence="22"/>
+
+
+</odoo>

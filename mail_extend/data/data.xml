@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="mail_notification_invoice_extend" inherit_id="mail.mail_notification_paynow"
+            name="Mail: Pay Now mail notification template">
+            <xpath expr="//div[@t-if='record.user_id.sudo().signature']" position="replace">
+                <t t-if="record._name == 'account.move'">
+                    <div t-if="record.env.user.signature" style="font-size: 13px;">
+                        <div t-raw="record.env.user.signature"/>
+                    </div>
+                </t>
+                <t t-else="">
+                    <div t-if="record.user_id.sudo().signature" style="font-size: 13px;">
+                        <div t-raw="record.user_id.sudo().signature"/>
+                    </div>
+                </t>
+            </xpath>
+        </template>
+        <record id="account_move_remove_follower_automated_action" model="base.automation">
+            <field name="name">Bmair | Remove Account Move Follower</field>
+            <field name="model_id" ref="account.model_account_move" />
+            <field name="trigger">on_create</field>
+            <field name="active" eval="True" />
+            <field name="filter_domain">[]</field>
+            <field name="state">code</field>
+            <field name="code">
+record.message_unsubscribe(record.message_follower_ids.partner_id.ids)
+            </field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,588 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* report_header_footer
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-09-09 09:27+0000\n"
+"PO-Revision-Date: 2021-09-09 09:27+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: report_header_footer
+#: model_terms:ir.ui.view,arch_db:report_header_footer.report_purchaseorder_add_productname
+msgid "<strong>Internal Description</strong>"
+msgstr "<strong>Interne Beschreibung</strong>"
+
+#. module: report_header_footer
+#: model_terms:ir.ui.view,arch_db:report_header_footer.bmair_sale_order_inherit
+msgid "Description"
+msgstr "Artikelbezeichnung"
+
+#. module: report_header_footer
+#: model_terms:ir.ui.view,arch_db:report_header_footer.bmair_sale_order_inherit
+msgid "Quantity"
+msgstr "Menge"
+
+#. module: report_header_footer
+#: model_terms:ir.ui.view,arch_db:report_header_footer.bmair_sale_order_inherit
+msgid "Unit Price"
+msgstr "Stückpreis"
+
+#. module: report_header_footer
+#: model_terms:ir.ui.view,arch_db:report_header_footer.bmair_sale_order_inherit
+msgid ""
+"<span groups=\"account.group_show_line_subtotals_tax_excluded\">Net Amount</span>\n"
+"                    <span groups=\"account.group_show_line_subtotals_tax_included\">Total Price</span>"
+msgstr ""
+"<span groups=\"account.group_show_line_subtotals_tax_excluded\">Nettobetrag</span>\n"
+"                    <span groups=\"account.group_show_line_subtotals_tax_included\">Gesamtpreis</span>"
+
+#. module: report_header_footer
+#: model_terms:ir.ui.view,arch_db:report_header_footer.bmair_invoice_inherit
+msgid ""
+"<span groups=\"account.group_show_line_subtotals_tax_excluded\">Net Amount</span>\n"
+"                <span groups=\"account.group_show_line_subtotals_tax_included\">Total Price</span>"
+msgstr ""
+"<span groups=\"account.group_show_line_subtotals_tax_excluded\">Nettobetrag</span>\n"
+"                <span groups=\"account.group_show_line_subtotals_tax_included\">Gesamtpreis</span>"
+
+#. module: report_header_footer
+#: model_terms:ir.ui.view,arch_db:report_header_footer.bmair_sale_order_inherit
+msgid "<strong>Subtotal</strong>"
+msgstr "<strong>Zwischensumme</strong>"
+
+#. module: report_header_footer
+#: model_terms:ir.ui.view,arch_db:report_header_footer.bmair_sale_order_inherit
+msgid "<strong>Total</strong>"
+msgstr "<strong>Summe inkl. MwSt.</strong>"
+
+#. module: report_header_footer
+#: model_terms:ir.ui.view,arch_db:report_header_footer.bmair_external_layout_standard_inherit
+msgid "<i>Sarl with capital of € 100.000,-</i>"
+msgstr "<i>Sarl mit einem Kapital von € 100.000,-</i>"
+
+#. module: report_header_footer
+#: model_terms:ir.ui.view,arch_db:report_header_footer.bmair_external_layout_standard_inherit
+msgid ""
+"<span>All deliveries are made in accordance<br/>\n"
+"                                with our conditions deposited at <br/>\n"
+"                                the K.v.K. Nr.: 11025624\n"
+"                                </span>"
+msgstr ""
+"<span>Alle Lieferungen erfolgen zu unseren<br/>\n"
+"                                bei der K.v.K hinterlegten Bedingungen. <br/>\n"
+"                                Nr.: 11025624\n"
+"                                </span>"
+
+#. module: report_header_footer
+#: model_terms:ir.ui.view,arch_db:report_header_footer.bmair_external_layout_standard_inherit
+msgid ""
+"<span>All deliveries are made in accordance<br/>\n"
+"                                with our conditions deposited at <br/>\n"
+"                                the K.v.K. Nr.: 18122402\n"
+"                                </span>"
+msgstr ""
+"<span>Alle Lieferungen erfolgen zu unseren<br/>\n"
+"                                bei der K.v.K hinterlegten Bedingungen. <br/>\n"
+"                                Nr.: 18122402\n"
+"                                </span>"
+
+#. module: report_header_footer
+#: model_terms:ir.ui.view,arch_db:report_header_footer.bmair_external_layout_standard_inherit
+msgid "BIC: CMCIFRPP"
+msgstr ""
+
+#. module: report_header_footer
+#: model_terms:ir.ui.view,arch_db:report_header_footer.bmair_external_layout_standard_inherit
+msgid "BTW Nr.: NL003.310.826B01"
+msgstr ""
+
+#. module: report_header_footer
+#: model_terms:ir.ui.view,arch_db:report_header_footer.bmair_external_layout_standard_inherit
+msgid "BTW Nr.: NL807.660.346B01"
+msgstr ""
+
+#. module: report_header_footer
+#: model_terms:ir.ui.view,arch_db:report_header_footer.bmair_external_layout_standard_inherit
+msgid "Bank: CIC"
+msgstr "Bank: CIC"
+
+#. module: report_header_footer
+#: model_terms:ir.ui.view,arch_db:report_header_footer.bmair_external_layout_standard_inherit
+msgid "E: commercial@bmair.com"
+msgstr ""
+
+#. module: report_header_footer
+#: model_terms:ir.ui.view,arch_db:report_header_footer.bmair_external_layout_standard_inherit
+msgid "Managing Director: Robin Veltman / Robbert Boersma"
+msgstr "Geschäftsführer: Robin Veltman, Robbert Boersma"
+
+#. module: report_header_footer
+#: model_terms:ir.ui.view,arch_db:report_header_footer.bmair_external_layout_standard_inherit
+msgid "IBAN: DE 59 4504 0042 0454 5018 00"
+msgstr ""
+
+#. module: report_header_footer
+#: model_terms:ir.ui.view,arch_db:report_header_footer.bmair_external_layout_standard_inherit
+msgid "IBAN: FR7630027175330002010900129"
+msgstr ""
+
+#. module: report_header_footer
+#: model_terms:ir.ui.view,arch_db:report_header_footer.bmair_external_layout_standard_inherit
+msgid "IBAN: NL49INGB0669773662"
+msgstr ""
+
+#. module: report_header_footer
+#: model_terms:ir.ui.view,arch_db:report_header_footer.bmair_external_layout_standard_inherit
+msgid "IBAN: NL84INGB0669773808"
+msgstr ""
+
+#. module: report_header_footer
+#: model_terms:ir.ui.view,arch_db:report_header_footer.bmair_external_layout_standard_inherit
+msgid "Mail:"
+msgstr ""
+
+#. module: report_header_footer
+#: model_terms:ir.ui.view,arch_db:report_header_footer.bmair_external_layout_standard_inherit
+msgid ""
+"Our deliveries are compliant\n"
+"                                <br/>\n"
+"                                on our terms available\n"
+"                                <br/>\n"
+"                                on demand.\n"
+"                                <br/>\n"
+"                                Siret Nr: 809 934 870 00019\n"
+"                                <br/>"
+msgstr ""
+"Unsere Lieferungen sind konform\n"
+"                                <br/>\n"
+"                                zu unseren Konditionen verfügbar\n"
+"                                <br/>\n"
+"                                auf Nachfrage.\n"
+"                                <br/>\n"
+"                                Siret Nr: 809 934 870 00019\n"
+"                                <br/>"
+
+
+
+#. module: report_header_footer
+#: model_terms:ir.ui.view,arch_db:report_header_footer.bmair_sale_order_inherit
+msgid ""
+"Your Reference<br/>\n"
+"                        Your customernumber<br/>\n"
+"                        Your contactperson<br/>\n"
+"                        Our contactperson"
+msgstr ""
+"Ihre Referenz<br/>\n"
+"                        Ihre Kundennummer<br/>\n"
+"                        Ihr Asp.<br/>\n"
+"                        Unser Asp."
+
+#. module: report_header_footer
+#: model_terms:ir.ui.view,arch_db:report_header_footer.bmair_invoice_inherit
+msgid ""
+"Customer no.<br/>\n"
+"                        Order no.<br/>\n"
+"                        Invoice date <br/>\n"
+"                        Due date <br/>\n"
+"                        Your VAT Reg. <br/>"
+msgstr ""
+"Kunden-Nr.<br/>\n"
+"                        Best.-Nr<br/>\n"
+"                        Rechnungsdatum<br/>\n"
+"                        Gültig bis<br/>\n"
+"                        Ihre Umsatzsteuer-Identifikationsnummer<br/>"
+
+#. module: report_header_footer
+#: model_terms:ir.ui.view,arch_db:report_header_footer.bmair_sale_order_inherit
+msgid "Gross price"
+msgstr "Einzelpreis"
+
+#. module: report_header_footer
+#: model_terms:ir.ui.view,arch_db:report_header_footer.bmair_invoice_inherit
+#: model_terms:ir.ui.view,arch_db:report_header_footer.bmair_sale_order_inherit
+msgid "<span>Discount %</span>"
+msgstr "<span>Rabatt %</span>"
+
+#. module: report_header_footer
+#: model_terms:ir.ui.view,arch_db:report_header_footer.bmair_external_layout_standard_header_inherit
+msgid "Quotation #"
+msgstr "Angebot #"
+
+#. module: report_header_footer
+#: model_terms:ir.ui.view,arch_db:report_header_footer.bmair_external_layout_standard_header_inherit
+msgid ""
+"<span style=\"margin-left: 60%; color: #D3D3D3;\">Page <span "
+"class=\"page\"/></span><br/>"
+msgstr ""
+"<span style=\"margin-left: 60%; color: #D3D3D3;\">Seite <span "
+"class=\"page\"/></span><br/>"
+
+#. module: report_header_footer
+#: model_terms:ir.ui.view,arch_db:report_header_footer.bmair_external_layout_standard_header_inherit
+msgid "<span style=\"margin-left: 60%;\">Page <span class=\"page\"/></span><br/>"
+msgstr "<span style=\"margin-left: 60%;\">Seite <span class=\"page\"/></span><br/>"
+
+#. module: report_header_footer
+#: model_terms:ir.ui.view,arch_db:report_header_footer.bmair_external_layout_standard_header_inherit
+msgid "Invoice"
+msgstr "Rechnung"
+
+#. module: report_header_footer
+#: model_terms:ir.ui.view,arch_db:report_header_footer.bmair_external_layout_standard_header_inherit
+msgid "Draft Invoice"
+msgstr "Rechnungsentwurf"
+
+#. module: report_header_footer
+#: model_terms:ir.ui.view,arch_db:report_header_footer.bmair_external_layout_standard_header_inherit
+msgid "Cancelled Invoice"
+msgstr "Stornierte Rechnung"
+
+#. module: report_header_footer
+#: model_terms:ir.ui.view,arch_db:report_header_footer.bmair_external_layout_standard_header_inherit
+msgid "Credit Note"
+msgstr "Gutschrift"
+
+#. module: report_header_footer
+#: model_terms:ir.ui.view,arch_db:report_header_footer.bmair_external_layout_standard_header_inherit
+msgid "Vendor Credit Note"
+msgstr "Lieferanten-Gutschrift"
+
+#. module: report_header_footer
+#: model_terms:ir.ui.view,arch_db:report_header_footer.bmair_external_layout_standard_header_inherit
+msgid "Vendor Bill"
+msgstr "Lieferantenrechnung"
+
+#. module: report_header_footer
+#: model_terms:ir.ui.view,arch_db:report_header_footer.bmair_external_layout_standard_header_inherit
+msgid "Pro-Forma Invoice #"
+msgstr "Proformarechnung #"
+
+#. module: report_header_footer
+#: model_terms:ir.ui.view,arch_db:report_header_footer.bmair_external_layout_standard_header_inherit
+msgid "Order #"
+msgstr "Auftrag #"
+
+#. module: report_header_footer
+#: model_terms:ir.ui.view,arch_db:report_header_footer.bmair_sale_order_inherit
+msgid ""
+"Delivery terms<br/>\n"
+"                            Order date<br/>\n"
+"                            Delivery date<br/>\n"
+"                            Payment terms"
+msgstr ""
+"Lieferbedingungen<br/>\n"
+"                        Auftragsdatum<br/>\n"
+"                        Lieferdatum<br/>\n"
+"                        Zahlungsbedingungen"
+
+#. module: report_header_footer
+#: model_terms:ir.ui.view,arch_db:report_header_footer.bmair_sale_order_inherit
+msgid ""
+"Delivery terms<br/>\n"
+"                            Quotation date<br/>\n"
+"                            Expiration date<br/>\n"
+"                            Payment terms"
+msgstr ""
+"Lieferbedingungen<br/>\n"
+"                        Angebotsdatum<br/>\n"
+"                        Gültig bis<br/>\n"
+"                        Zahlungsbedingungen"
+
+#. module: report_header_footer
+#: model_terms:ir.ui.view,arch_db:report_header_footer.bmair_invoice_inherit
+msgid ""
+"Delivery terms<br/>\n"
+"                        Your ref<br/>\n"
+"                        Payment terms<br/>"
+msgstr ""
+"Lieferbedingungen<br/>\n"
+"                        dein ref<br/>\n"
+"                        Zahlungsbedingungen<br/>"
+
+
+
+#. module: report_header_footer
+#: model_terms:ir.ui.view,arch_db:report_header_footer.bmair_external_layout_standard_inherit
+msgid "P: 0750606371 / 0685464354"
+msgstr ""
+
+#. module: report_header_footer
+#: model_terms:ir.ui.view,arch_db:report_header_footer.bmair_external_layout_standard_inherit
+msgid "Register court: District court Arnsberg HRA8540"
+msgstr "Registergericht: Amtsgericht Arnsberg HRA8540"
+
+#. module: report_header_footer
+#: model_terms:ir.ui.view,arch_db:report_header_footer.bmair_external_layout_standard_inherit
+msgid "SWIFT/BIC code: INGBNL2A"
+msgstr ""
+
+#. module: report_header_footer
+#: model_terms:ir.ui.view,arch_db:report_header_footer.bmair_external_layout_standard_inherit
+msgid "tax NR.: 303 5804 0883"
+msgstr "Steuer Nr.: 303 5804 0883"
+
+#. module: report_header_footer
+#: model_terms:ir.ui.view,arch_db:report_header_footer.bmair_external_layout_standard_inherit
+msgid "T: 0144646358"
+msgstr ""
+
+#. module: report_header_footer
+#: model_terms:ir.ui.view,arch_db:report_header_footer.bmair_external_layout_standard_inherit
+msgid "TVA: FR18809934870"
+msgstr ""
+
+#. module: report_header_footer
+#: model_terms:ir.ui.view,arch_db:report_header_footer.bmair_external_layout_standard_inherit
+msgid "Tel:"
+msgstr ""
+
+#. module: report_header_footer
+#: model_terms:ir.ui.view,arch_db:report_header_footer.bmair_external_layout_standard_inherit
+msgid "UST-ID Nr.: DE 329 553 650"
+msgstr ""
+
+#. module: report_header_footer
+#: model_terms:ir.ui.view,arch_db:report_header_footer.bmair_external_layout_standard_inherit
+msgid "W: www.bmair.com"
+msgstr ""
+
+#. module: report_header_footer
+#: model_terms:ir.ui.view,arch_db:report_header_footer.bmair_external_layout_standard_inherit
+msgid "Web:"
+msgstr ""
+
+#. module: report_header_footer
+#: model_terms:ir.ui.view,arch_db:report_header_footer.bmair_external_layout_standard_inherit
+msgid ""
+"<span>Our general <br/>\n"
+"                                    terms and conditions are<br/>\n"
+"                                    applicable: www.bmair.com <br/>\n"
+"                                </span>"
+msgstr ""
+"<span>Unsere Allgemeinen<br/>\n"
+"                                    Geschäftsbedingungen sind<br/>\n"
+"                                    einsehbar unter: www.bmair.de<br/>\n"
+"                                </span>"
+
+#. module: report_header_footer
+#: model_terms:ir.ui.view,arch_db:report_header_footer.bmair_external_layout_standard_inherit
+msgid ""
+"<span>Our general <br/>\n"
+"                                    terms and conditions<br/>\n"
+"                                    can be viewed at: www.bmair.com <br/>\n"
+"                                </span>"
+msgstr ""
+"<span>Unsere Allgemeinen<br/>\n"
+"                                    Geschäftsbedingungen sind<br/>\n"
+"                                    einsehbar unter: www.bmair.de<br/>\n"
+"                                </span>"
+
+
+#. module: report_header_footer
+#: model_terms:ir.ui.view,arch_db:report_header_footer.bmair_external_layout_standard_inherit
+msgid ""
+"<span>Our terms and conditions are<br/>\n"
+"                                applicable: www.bmair.com <br/>\n"
+"                                </span>"
+msgstr ""
+"<span>Unsere Geschäftsbedingungen sind<br/>\n"
+"                                zutreffend: www.bmair.com <br/>\n"
+"                                </span>"
+
+#. module: report_header_footer
+#: model_terms:ir.ui.view,arch_db:report_header_footer.bmair_external_layout_standard_inherit
+msgid ""
+"Our general conditions are\n"
+"                                <br/>\n"
+"                                the following applicable:\n"
+"                                <br/>\n"
+"                                www.bmair.com\n"
+"                                <br/>\n"
+"                                Siret Nr: 809 934 870 00019\n"
+"                                <br/>"
+msgstr ""
+"Unsere allgemeinen Geschäftsbedingungen sind\n"
+"                                <br/>\n"
+"                                gilt folgendes: \n"
+"                                <br/>\n"
+"                                www.bmair.com\n"
+"                                <br/>\n"
+"                                Siret-Nr: 809 934 870 00019\n"
+"                                <br/>"
+
+#. module: report_header_footer
+#: model_terms:ir.ui.view,arch_db:report_header_footer.bmair_invoice_inherit
+msgid "Invoice Address"
+msgstr "Rechnungsadresse"
+
+#. module: report_header_footer
+#: model_terms:ir.ui.view,arch_db:report_header_footer.bmair_invoice_inherit
+msgid "Invoice Address <br/>"
+msgstr "Rechnungsadresse <br/>"
+
+#. module: report_header_footer
+#: model_terms:ir.ui.view,arch_db:report_header_footer.bmair_invoice_inherit
+msgid "Delivery Address"
+msgstr "Lieferadresse"
+
+#. module: report_header_footer
+#: model_terms:ir.ui.view,arch_db:report_header_footer.bmair_invoice_inherit
+msgid ""
+"Ordernumber<br/>\n"
+"                            Delivery terms<br/>\n"
+"                            Payment terms<br/>\n"
+"                            Invoice date <br/>\n"
+"                            Due date <br/>"
+msgstr ""
+"Ordernummer<br/>\n"
+"                        Lieferbedingungen<br/>\n"
+"                        Zahlungsbedingungen<br/>\n"
+"                        Rechnungsdatum <br/>\n"
+"                        Falligkeitsdatum <br/>"
+
+#. module: report_header_footer
+#: model_terms:ir.ui.view,arch_db:report_header_footer.bmair_invoice_inherit
+msgid "<span>Gross price</span>"
+msgstr "<span>Einzelpreis</span>"
+
+#. module: account
+#: model_terms:ir.ui.view,arch_db:account.report_invoice_document
+msgid "<span>Description</span>"
+msgstr "<span>Artikelbezeichnung</span>"
+
+#. module: account
+#: model_terms:ir.ui.view,arch_db:account.report_invoice_document
+#: model_terms:ir.ui.view,arch_db:account.report_journal
+msgid "<strong>Total</strong>"
+msgstr "<strong>Summe inkl. MwSt.</strong>"
+
+#. module: report_header_footer
+#: model_terms:ir.ui.view,arch_db:report_header_footer.bmair_invoice_inherit
+msgid ""
+"<br/>\n"
+"                Please state the following reference on your payment :"
+msgstr ""
+"<br/>\n"
+"                Bitte geben Sie bei der Zahlung den folgenden Verwendungszweck an : "
+
+#. module: report_header_footer
+#: model_terms:ir.ui.view,arch_db:report_header_footer.report_purchaseorder_add_productname
+msgid "<strong>Shipping address:</strong>"
+msgstr "<strong>Lieferanschrift:</strong>"
+
+#. module: report_header_footer
+#: model_terms:ir.ui.view,arch_db:report_header_footer.report_purchaseorder_add_productname
+msgid "<strong>Purchase Representative:</strong>"
+msgstr "<strong>Einkäufer:</strong>"
+
+#. module: report_header_footer
+#: model_terms:ir.ui.view,arch_db:report_header_footer.report_purchaseorder_add_productname
+msgid "<strong>Your Order Reference:</strong>"
+msgstr "<strong>Ihre Bestellreferenz:</strong>"
+
+#. module: report_header_footer
+#: model_terms:ir.ui.view,arch_db:report_header_footer.report_purchaseorder_add_productname
+msgid "<strong>Order Date:</strong>"
+msgstr "<strong>Bestelldatum:</strong>"
+
+#. module: report_header_footer
+#: model_terms:ir.ui.view,arch_db:report_header_footer.report_purchaseorder_add_productname
+msgid "<strong>Gross Price</strong>"
+msgstr "<strong>Einzelpreis</strong>"
+
+#. module: report_header_footer
+#: model_terms:ir.ui.view,arch_db:report_header_footer.report_purchaseorder_add_productname
+msgid "<strong>Net Amount</strong>"
+msgstr "<strong>Nettobetrag</strong>"
+
+#. module: purchase
+#: model_terms:ir.ui.view,arch_db:purchase.report_purchaseorder_document
+#: model_terms:ir.ui.view,arch_db:purchase.report_purchasequotation_document
+msgid "<strong>Description</strong>"
+msgstr "<strong>Artikelbezeichnung</strong>"
+
+#. module: purchase
+#: model_terms:ir.ui.view,arch_db:purchase.report_purchaseorder_document
+msgid "<strong>Total</strong>"
+msgstr "<strong>Summe inkl. MwSt</strong>"
+
+#. module: stock
+#: model_terms:ir.ui.view,arch_db:stock.report_delivery_document
+#: model_terms:ir.ui.view,arch_db:stock.report_picking
+msgid "<strong>Order:</strong>"
+msgstr "<strong>Auftrag:</strong>"
+
+#. module: sale_stock
+#: model_terms:ir.ui.view,arch_db:sale_stock.report_delivery_document_inherit_sale_stock
+msgid "<strong>Customer Reference:</strong>"
+msgstr "<strong>Ihre Referenz:</strong>"
+
+#. module: account
+#: model_terms:ir.ui.view,arch_db:account.report_invoice_document
+msgid "<span>Description</span>"
+msgstr "<span>Artikelbezeichnung</span>"
+
+#. module: report_header_footer
+#: model_terms:ir.ui.view,arch_db:report_header_footer.bmair_invoice_inherit
+msgid "Terms of delivery:"
+msgstr "Lieferbedingungen:"
+
+
+#. module: report_header_footer
+#: model_terms:ir.ui.view,arch_db:report_header_footer.bmair_invoice_inherit
+msgid "Your reference"
+msgstr ""
+"Ihre Referenz"
+
+#. module: report_header_footer
+#: model_terms:ir.ui.view,arch_db:report_header_footer.bmair_invoice_inherit
+msgid "Your customernumber"
+msgstr "Ihre Kundennummer"
+
+#. module: report_header_footer
+#: model_terms:ir.ui.view,arch_db:report_header_footer.bmair_invoice_inherit
+msgid "Your VAT number"
+msgstr "Ihre USt.-IdNr."
+
+#. module: report_header_footer
+#: model_terms:ir.ui.view,arch_db:report_header_footer.bmair_invoice_inherit
+msgid "Your contactperson"
+msgstr "Ihr Asp."
+
+#. module: report_header_footer
+#: model_terms:ir.ui.view,arch_db:report_header_footer.bmair_invoice_inherit
+msgid "Our contactperson"
+msgstr "Unser Asp."
+
+#. module: report_header_footer
+#: model_terms:ir.ui.view,arch_db:report_header_footer.bmair_invoice_inherit
+msgid "Ordernumber"
+msgstr "Ordernummer"
+
+#. module: report_header_footer
+#: model_terms:ir.ui.view,arch_db:report_header_footer.bmair_invoice_inherit
+msgid "Delivery date"
+msgstr "Lieferdatum"
+
+#. module: report_header_footer
+#: model_terms:ir.ui.view,arch_db:report_header_footer.bmair_invoice_inherit
+msgid "Payment terms"
+msgstr "Zahlungsbedingungen"
+
+#. module: report_header_footer
+#: model_terms:ir.ui.view,arch_db:report_header_footer.bmair_invoice_inherit
+msgid "Invoice date"
+msgstr "Rechnungsdatum"
+
+#. module: report_header_footer
+#: model_terms:ir.ui.view,arch_db:report_header_footer.bmair_invoice_inherit
+msgid "Due date"
+msgstr "Falligkeitsdatum"

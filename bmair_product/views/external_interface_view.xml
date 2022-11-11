@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+        <record id="view_external_interface_tree" model="ir.ui.view">
+            <field name="name">external.interface.tree</field>
+            <field name="model">external.interface</field>
+            <field name="arch" type="xml">
+                <tree string="Brand">
+                    <field name="name"/>
+                    <field name="ftp_location"/>
+                    <field name="user_name"/>
+                    <field name="pwd" password="True"/>
+                    <field name="partner_id" />
+                    
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_external_interface_form" model="ir.ui.view">
+            <field name="name">external.interface.form</field>
+            <field name="model">external.interface</field>
+            <field name="arch" type="xml">
+                <form string="Brand">
+                <header>
+                	<button name="test_connection_ftp" type="object" string="Test Connection"/>
+                	<field name="con_state" widget="statusbar" statusbar_visible="draft,success,fail"/>
+                </header>
+                    <sheet>
+                    	<div class="oe_title">
+	                        <h1>
+	                            <field name="name"/>
+	                        </h1>
+	                    </div>
+                    	<group>
+                        <group>
+                            <field name="ftp_location"/>
+                            <field name="user_name"/>
+                            <field name="pwd"/>
+                        </group>
+                        <group>
+                            <field name="partner_id"/>
+                            <field name="note"/>
+                            <field name="partner_id" invisible="1"/>
+                            <field name="country_id"/>
+                        </group>
+                        </group>
+                    </sheet>
+                    <!-- Chatter -->
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" groups="base.group_user"/>
+                        <field name="activity_ids"/>
+                        <field name="message_ids"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+        
+        <record id="action_external_interface" model="ir.actions.act_window">
+            <field name="name">External Interface</field>
+            <field name="res_model">external.interface</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem action="action_external_interface" id="menu_action_external_interface_action"
+                  parent="sale.menu_sale_config" sequence="12"/>
+
+</odoo>

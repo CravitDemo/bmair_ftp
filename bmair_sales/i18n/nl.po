@@ -1,0 +1,56 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* bmair_sales
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-09-22 15:21+0000\n"
+"PO-Revision-Date: 2021-09-22 15:21+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: bmair_sales
+#: model_terms:ir.ui.view,arch_db:bmair_sales.report_saleorder_document_inherit_sale_contact
+msgid "<strong>Contact Person:</strong>"
+msgstr "Contactpersoon"
+
+#. module: bmair_sales
+#: model:ir.model.fields,field_description:bmair_sales.field_sale_order__partner_contact_id
+msgid "Contact Person"
+msgstr "Contactpersoon"
+
+#. module: bmair_sales
+#: model_terms:ir.ui.view,arch_db:bmair_sales.view_order_form_inherit_sale_stock_change_view
+msgid "Delivery Date"
+msgstr "Leverdatum"
+
+#. module: bmair_sales
+#: model:ir.model.fields,field_description:bmair_sales.field_sale_order__display_name
+msgid "Display Name"
+msgstr "Schermnaam"
+
+#. module: bmair_sales
+#: model_terms:ir.ui.view,arch_db:bmair_sales.view_order_form_inherit_sale_stock_change_view
+msgid "Expected:"
+msgstr "Verwacht:"
+
+#. module: bmair_sales
+#: model:ir.model.fields,field_description:bmair_sales.field_sale_order__id
+msgid "ID"
+msgstr ""
+
+#. module: bmair_sales
+#: model:ir.model.fields,field_description:bmair_sales.field_sale_order____last_update
+msgid "Last Modified on"
+msgstr "Laatst gewijzigd op"
+
+#. module: bmair_sales
+#: model:ir.model,name:bmair_sales.model_sale_order
+msgid "Sales Order"
+msgstr "Verkooporder"

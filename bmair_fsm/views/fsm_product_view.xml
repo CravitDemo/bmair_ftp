@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!--
+    	Task Views in Project and FSM app
+	-->
+
+    <record id="view_product_product_price_hide_inherit" model="ir.ui.view">
+        <field name="name">product.product.hide.price</field>
+        <field name="model">product.product</field>
+        <field name="inherit_id" ref="industry_fsm_sale.view_product_product_kanban_material"/>
+        <field name="arch" type="xml">
+        	<xpath expr="//div[hasclass('o_kanban_record_headings')]/ul" position="replace">
+                  <ul groups="bmair_fsm.sale_price_visible_group">
+                      <li><strong>Price: <field name="price" widget="monetary" options="{'currency_field': 'currency_id'}" /></strong></li>
+                      <field name="currency_id" invisible="True"/>
+                  </ul>
+            </xpath>
+		</field>
+    </record>
+    
+ </odoo>

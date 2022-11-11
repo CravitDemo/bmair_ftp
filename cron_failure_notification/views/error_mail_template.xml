@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="scheduler_error_mailer" model="mail.template">
+        <field name="name">Scheduler Error</field>
+        <field name="model_id" ref="cron_failure_notification.model_logs_action"/>
+        <field name="email_from">${object.user_id.email}</field>
+        <field name="email_to">${object.user_id.email}</field>
+        <field name="subject">${object.name})</field>
+        <field name="body_html" type="html">
+            <![CDATA[
+                Dear Support team,<br>
+                <p>Here we are attaching error logs from scheduled cron jobs on our server, so please
+                urgently take action.<br> If you have any question, don't hesitate to contact us.<br></p><br>
+                Thank You.
+                ]]>
+        </field>
+        <field name="report_template" ref="cron_failure_notification.action_report_logs"/>
+        <field name="auto_delete" eval="True"/>
+    </record>
+
+
+</odoo>

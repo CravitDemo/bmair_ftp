@@ -1,0 +1,266 @@
+<odoo>
+    <data>
+    <record id="act_res_partner_2_fsm_machine" model="ir.actions.act_window">
+            <field name="name">Machines</field>
+            <field name="res_model">fsm.machine.customer</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('partner_id', '=', active_id)]</field>
+            <field name="context">{'search_default_partner_id': active_id, 'default_partner_id': active_id}</field>
+            <field name="groups_id" eval="[(4, ref('sales_team.group_sale_salesman'))]"/>
+            <field name="help" type="html">
+              <p class="o_view_nocontent_smiling_face">
+                Create a new Machine, the first step of a new Machine!
+              </p>
+            </field>
+        </record>
+        
+      <record id="act_fsm_task_2_fsm_machine" model="ir.actions.act_window">
+            <field name="name">Tasks</field>
+            <field name="res_model">project.task</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('machine_id', '=', active_id)]</field>
+            <field name="context">{'search_default_machine_id': active_id, 'default_machine_id': active_id}</field>
+            <field name="groups_id" eval="[(4, ref('sales_team.group_sale_salesman'))]"/>
+            <field name="help" type="html">
+              <p class="o_view_nocontent_smiling_face">
+                Create a new Machine, the first step of a new Machine!
+              </p>
+            </field>
+        </record>
+    
+    <record id="res_partner_view_buttons_fms" model="ir.ui.view">
+            <field name="name">res.partner.view.buttons</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form" />
+            <field name="priority" eval="3"/>
+            <field name="groups_id" eval="[(4, ref('sales_team.group_sale_salesman'))]"/>
+            <field name="arch" type="xml">
+                <div name="button_box" position="inside">
+                    <button class="oe_stat_button" type="action" name="%(act_res_partner_2_fsm_machine)d" 
+                        groups="sales_team.group_sale_salesman"
+                        icon="fa-bars">
+                        <field string="Machines" name="machine_count" widget="statinfo"/>
+                    </button>
+                </div>
+            </field>
+        </record>
+    
+	<record id="view_fsm_machine_customer_form" model="ir.ui.view">
+        <field name="name">fsm.machine.customer.form</field>
+        <field name="model">fsm.machine.customer</field>
+        <field name="priority">10</field>
+        <field name="arch" type="xml">
+            <form string="Customer Machine">
+                <sheet>
+				<div class="oe_button_box" name="button_box">
+					<widget name="web_ribbon" title="Archived" bg_color="bg-danger" attrs="{'invisible': [('active', '=', True)]}"/>
+                	<button class="oe_stat_button" type="action" name="%(act_fsm_task_2_fsm_machine)d" 
+                        groups="sales_team.group_sale_salesman"
+                        icon="fa-bars">
+                        <field string="Tasks" name="task_count" widget="statinfo"/>
+                    </button>
+                </div>
+                <div class="oe_title">
+                    <label for="name" class="oe_edit_only"/>
+                    <h1>
+                        <field name="name"/>
+                    </h1>
+                </div>
+                <group name="main_group">
+                    <group>
+                    	<field name="active"/>
+                    	<field name="brand_id"/>
+                    	<field name="type"/>
+                    	<field name="chassis_nr"/>
+                    	<field name="construction_year"/>
+                    	<field name="product_id"/>
+                    	<field name="lot_id"/>
+                    	<field name="controllert_id"/>
+                    	<field name="controllert_number"/>
+                    	<field name="partner_id"/>
+                    </group>
+                    <group></group>
+                </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_fsm_machine_customer_tree" model="ir.ui.view">
+        <field name="name">fsm.machine.customer.tree</field>
+        <field name="model">fsm.machine.customer</field>
+        <field name="arch" type="xml">
+            <tree string="Customer Machine" multi_edit="1">
+                <field name="name" decoration-bf="1"/>
+                <field name="brand_id"/>
+               	<field name="type"/>
+               	<field name="chassis_nr"/>
+               	<field name="construction_year"/>
+               	<field name="product_id"/>
+               	<field name="lot_id"/>
+               	<field name="controllert_id"/>
+               	<field name="controllert_number"/>
+               	<field name="partner_id"/>
+            </tree>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="search_fsm_machine_customer_filter">
+        <field name="name">Customer Machine Filter</field>
+        <field name="model">fsm.machine.customer</field>
+        <field name="arch" type="xml">
+            <search string="Customer Machine Filter">
+                <field name="name" string="Lot/Serial Number" filter_domain="['|', '|', ('name', 'ilike', self),('lot_id.name', 'ilike', self),('controllert_number', 'ilike', self)]"/>
+                <field name="product_id"/>
+                <group expand="0" string="Group By">
+                    <filter name="group_by_product" string="Product" domain="[]" context="{'group_by': 'product_id'}"/>
+                    <filter name="group_by_customer" string="Customer" domain="[]" context="{'group_by': 'partner_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_fsm_machine_customer_form" model="ir.actions.act_window">
+        <field name="name">Customer Machine</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">fsm.machine.customer</field>
+        <field name="view_ids"
+                   eval="[(5, 0, 0),
+                          (0, 0, {'view_mode': 'tree', 'view_id': ref('view_fsm_machine_customer_tree')}),
+                          (0, 0, {'view_mode': 'form', 'view_id': ref('view_fsm_machine_customer_form')})]"/>
+        <field name="search_view_id" ref="search_fsm_machine_customer_filter"/>
+        <field name="context">{'search_default_group_by_customer': 1, }</field>
+        <field name="help" type="html">
+          <p class="o_view_nocontent_smiling_face">
+            Add a Customer Machine
+          </p>
+        </field>
+    </record>
+    <menuitem action="action_fsm_machine_customer_form" id="menu_action_fsm_machine_customer_form"
+        parent="sale.prod_config_main" 
+        sequence="101"/>
+        
+    <menuitem action="action_fsm_machine_customer_form" id="menu_action_fsm_machine_customer_form_fms"
+        parent="industry_fsm.fsm_menu_settings" 
+        sequence="101"/>
+        
+    <!-- customer Controller -->
+    <record model="ir.ui.view" id="res_product_controller_form_view">
+        <field name="name">
+            product.controller.form
+        </field>
+        <field name="model">product.controller</field>
+        <field name="arch" type="xml">
+            <form string="Controller">
+            	<group>
+	                <group>
+	                    <field name="name" />
+	                </group>
+                </group>
+            </form>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="res_product_controller_search_view">
+        <field name="name">
+            product.controller.search
+        </field>
+        <field name="model">product.controller</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name" />
+            </search>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="res_product_controller_tree_view">
+        <field name="name">
+            product.controller.tree
+        </field>
+        <field name="model">product.controller</field>
+        <field name="arch" type="xml">
+            <tree editable="top">
+                <field name="name" />
+            </tree>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="res_product_controller_act_window">
+        <field name="name">Controller</field>
+        <field name="res_model">product.controller</field>
+        <field name="view_mode">tree</field>
+        <field name="domain">[]</field>
+        <field name="context">{}</field>
+    </record>
+    <menuitem
+        action="res_product_controller_act_window"
+        id="menu_product_controller"
+        name="Controller"
+        parent="sale.prod_config_main"
+    />
+    <menuitem
+        action="res_product_controller_act_window"
+        id="menu_product_controller_fms"
+        name="Controller"
+        parent="industry_fsm.fsm_menu_settings"
+    />
+    <!-- customer System -->
+    <record model="ir.ui.view" id="res_product_system_form_view">
+        <field name="name">
+            product.system.form
+        </field>
+        <field name="model">product.system</field>
+        <field name="arch" type="xml">
+            <form string="System">
+            	<group>
+	                <group>
+	                    <field name="name" />
+	                </group>
+                </group>
+            </form>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="res_product_system_search_view">
+        <field name="name">
+            product.system.search
+        </field>
+        <field name="model">product.system</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name" />
+            </search>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="res_product_system_tree_view">
+        <field name="name">
+            product.system.tree
+        </field>
+        <field name="model">product.system</field>
+        <field name="arch" type="xml">
+            <tree editable="top">
+                <field name="name" />
+            </tree>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="res_product_system_act_window">
+        <field name="name">System</field>
+        <field name="res_model">product.system</field>
+        <field name="view_mode">tree</field>
+        <field name="domain">[]</field>
+        <field name="context">{}</field>
+    </record>
+    <menuitem
+        action="res_product_system_act_window"
+        id="menu_product_system"
+        name="System"
+        parent="sale.prod_config_main"
+    />
+    <menuitem
+        action="res_product_system_act_window"
+        id="menu_product_system_fms"
+        name="System"
+        parent="industry_fsm.fsm_menu_settings"
+    />
+    </data>
+</odoo>
