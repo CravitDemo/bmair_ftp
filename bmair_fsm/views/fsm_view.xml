@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!--
+    	Task Views in Project and FSM app
+	-->
+
+    <record id="view_task_form2_inherit" model="ir.ui.view">
+        <field name="name">view.task.form2.inherit</field>
+        <field name="model">project.task</field>
+        <field name="inherit_id" ref="timesheet_grid.project_task_view_form"/>
+        <field name="arch" type="xml">
+        	<field name="partner_id" position='after'>
+        		<field name="machine_id" attrs="{'invisible': [('is_fsm', '=', False)]}" domain="[('partner_id', '=', partner_id)]"/>
+			</field>
+			
+		</field>
+    </record>
+    
+    <record id="view_product_product_kanban_material_internal_ref_inherit" model="ir.ui.view">
+        <field name="name">product.product.internal.ref.price</field>
+        <field name="model">product.product</field>
+        <field name="inherit_id" ref="industry_fsm_sale.view_product_product_kanban_material"/>
+        <field name="arch" type="xml">
+        	<field name="name" position='after'>
+        		<field name="default_code" />
+        	</field>
+        	<xpath expr="//div[hasclass('o_kanban_record_headings')]/strong/div" position="before">
+                  <div>
+                     <strong t-if="record.default_code.value">[<field name="default_code"/>]</strong>
+                 </div>
+            </xpath>
+		</field>
+    </record>
+    
+ </odoo>

@@ -1,0 +1,49 @@
+<odoo>
+    <template id="report_delivery_document_inherit_reports" inherit_id="stock.report_delivery_document">
+        <xpath expr="//div[@name='div_sched_date']/t/p[@t-field='o.date_done']" position="replace">
+            <p t-field="o.date_done" t-options="{&quot;widget&quot;: &quot;date&quot;}"/>
+        </xpath>
+        <xpath expr="//div[@name='div_sched_date']/t/p[@t-field='o.scheduled_date']" position="replace">
+            <p t-field="o.scheduled_date" t-options="{&quot;widget&quot;: &quot;date&quot;}"/>
+        </xpath>
+    </template>
+    <template id="report_delivery_document_layout_changes" inherit_id="delivery.report_delivery_document2">
+        <xpath expr="//h2" position="replace">
+        </xpath>
+        <xpath expr="//th[@name='th_sm_product']" position="attributes">
+            <attribute name="style">color: #004990;</attribute>
+        </xpath>
+        <xpath expr="//th[@name='th_sm_quantity']" position="attributes">
+            <attribute name="style">color: #004990;</attribute>
+        </xpath>
+
+        <xpath expr="//th[@name='th_sml_product']" position="attributes">
+            <attribute name="style">color: #004990;</attribute>
+        </xpath>
+        <xpath expr="//th[@name='th_sml_quantity']" position="attributes">
+            <attribute name="style">color: #004990;</attribute>
+        </xpath>
+
+        <xpath expr="//t[@name='partner_header']" position="replace">
+           <t name="partner_header">
+                    <t t-set="address">
+                        <div>
+                            <h2><span t-field="o.name"/></h2>
+                        </div>
+                        <div t-if="partner" t-esc="partner"
+                        t-options='{"widget": "contact", "fields": ["address", "name", "phone"], "no_marker": True}'/>
+                   </t>
+                </t>
+        </xpath>
+        <xpath expr="//div[@t-if='o.shipping_weight']" position="replace">
+        </xpath>
+    </template>
+    <template id="sale_stock.report_delivery_document_inherit_sale_stock" inherit_id="stock.report_delivery_document">
+        <xpath expr="//div[@name='div_sched_date']" position="after">
+            <div class="col-auto">
+                <strong>Customer Reference:</strong>
+                <p t-field="o.sudo().sale_id.client_order_ref"/>
+            </div>
+        </xpath>
+    </template>
+</odoo>

@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="bmair_sale_order_inherit" inherit_id="sale.report_saleorder_document">
+        <t t-set="address" position="replace">
+            <style>table,tr,td {font-size: 18px}</style>
+            <table style="width:100% ; margin-left:100px">
+                <tr style="width:100%">
+                    <td style="width:50%">
+                        <strong><div t-field="doc.partner_id"
+                            t-options='{"widget": "contact", "fields": ["address", "name"], "no_marker": True}' />
+                        </strong>
+                    </td>
+                    <td style="width:50%"></td>
+                </tr>
+            </table>
+        </t>
+        <h2 class="mt16" position="replace">
+            <!--<style>h2 {border: 1px solid black; text-align:center; background-color: #C1C1C1}</style>
+            <table style="width:100% ">
+                <tr style="width:100%">
+                    <td style="width:60%"/>
+                    <td style="width:40%">
+                        <h2>
+                            <t t-if="not (env.context.get('proforma', False) or is_pro_forma)">
+                                <span t-if="doc.state not in ['draft','sent']">Order # </span>
+                                <span t-if="doc.state in ['draft','sent']">Quotation # </span>
+                            </t>
+                            <t t-if="env.context.get('proforma', False) or is_pro_forma">
+                                <span>Pro-Forma Invoice # </span>
+                            </t>
+                            <span t-field="doc.name"/>
+                        </h2>
+                    </td>
+                </tr>
+            </table>-->
+        </h2>
+        <div id="informations" position="replace">
+            <br/>
+            <table style="width:100%">
+                <tr style="width:100%">
+                    <td style="width:22%;">
+                        Your Reference<br/>
+                        Your customernumber<br/>
+                        Your contactperson<br/>
+                        Our contactperson
+                    </td>
+                    <td style="width:33%;">
+                        <span t-field="doc.client_order_ref"/><br/>
+                        <span t-field="doc.partner_id.ref"/><br/>
+                        <span t-field="doc.partner_contact_id.name"/><br/>
+                        <span t-field="doc.user_id.name"/>
+                    </td>
+                    <td style="width:10%;"></td>
+                    <t t-if="doc.state in ['draft','sent']">
+                        <td style="width:20%;">
+                            Delivery terms<br/>
+                            Quotation date<br/>
+                            Expiration date<br/>
+                            Payment terms
+                        </td>
+                        <td style="width:15%;">
+                            <span t-field="doc.incoterm"/><br/>
+                            <span class="m-0" t-field="doc.date_order" t-options='{"widget": "date"}'/><br/>
+                            <span t-field="doc.validity_date" t-options='{"widget": "date"}'/><br/>
+                            <span t-if="doc.payment_term_id.note">
+                                    <span t-field="doc.payment_term_id"/>
+                            </span>
+                        </td>
+                    </t>
+                    <t t-else="">
+                        <td style="width:20%;">
+                            Delivery terms<br/>
+                            Order date<br/>
+                            Delivery date<br/>
+                            Payment terms
+                        </td>
+                        <td style="width:15%;">
+                            <span t-field="doc.incoterm"/><br/>
+                            <span class="m-0" t-field="doc.date_order" t-options='{"widget": "date"}'/><br/>
+                            <span t-field="doc.commitment_date" t-options='{"widget": "date"}'/><br/>
+                            <span t-if="doc.payment_term_id.note">
+                                    <span t-field="doc.payment_term_id"/>
+                            </span>
+                        </td>
+                    </t>
+                </tr>
+            </table><br/>
+        </div>
+        <div class="clearfix" name="so_total_summary" position="replace">
+            <div id="total" class="row" name="total">
+                <div t-attf-class="#{'col-4' if report_type != 'html' else 'col-sm-7 col-md-5'} ml-auto">
+                    <table class="table table-sm">
+                        <tr class="border-black o_subtotal" style="">
+                            <td name="td_amount_untaxed_label"><strong>Subtotal</strong></td>
+                            <td name="td_amount_untaxed" class="text-right">
+                                <span t-field="doc.amount_untaxed"/>
+                            </td>
+                        </tr>
+                        <t t-foreach="doc.amount_by_group" t-as="amount_by_group">
+                            <tr style="">
+                                <t t-if="amount_by_group[5] == 1 and doc.amount_untaxed == amount_by_group[2]">
+                                    <td name="td_amount_by_group_label_3">
+                                        <span t-esc="amount_by_group[0]">
+                                            <t t-esc="amount_by_group[2]" t-options='{"widget": "monetary", "display_currency": doc.pricelist_id.currency_id}'/>
+                                        </span>
+                                    </td>
+                                    <td name="td_amount_by_group_3" class="text-right o_price_total">
+                                        <span t-esc="amount_by_group[1]"
+                                            t-options='{"widget": "monetary", "display_currency": doc.pricelist_id.currency_id}'/>
+                                    </td>
+                                </t>
+                                <t t-else ="">
+                                    <td name="td_amount_by_group_label">
+                                        <span t-esc="amount_by_group[0]"/>
+                                    </td>
+                                    <td name="td_amount_by_group" class="text-right o_price_total">
+                                        <span t-esc="amount_by_group[1]"
+                                            t-options='{"widget": "monetary", "display_currency": doc.pricelist_id.currency_id}'/>
+                                    </td>
+                                </t>
+                            </tr>
+                        </t>
+                        <tr class="border-black o_total">
+                            <td name="td_amount_total_label"><strong>Total</strong></td>
+                            <td name="td_amount_total" class="text-right">
+                                <span t-field="doc.amount_total"/>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <thead style="display: table-row-group" position="replace">
+            <tr>
+                <th style="color: #004990;width:52% ;" name="th_description" class="text-left">Description</th>
+                <th style="color: #004990;width:14% ;" name="th_quantity" class="text-right">Quantity</th>
+                <th style="color: #004990;width:12% ;" name="th_priceunit" class="text-right">Gross price</th>
+                <th style="color: #004990;width:10% ;" name="th_discount" t-if="display_discount" class="text-right" groups="product.group_discount_per_so_line">
+                    <span>Discount %</span>
+                </th>
+                <th style="color: #004990;width:12% ;" name="th_subtotal" class="text-right">
+                    <span groups="account.group_show_line_subtotals_tax_excluded">Net Amount</span>
+                    <span groups="account.group_show_line_subtotals_tax_included">Total Price</span>
+                </th>
+            </tr>
+        </thead>
+        <xpath expr="//tbody[@class='sale_tbody']/t/tr/t/td[3]" position="replace">
+            <td name="td_priceunit" class="text-right">
+                <span t-field="line.price_unit" t-options='{"widget": "monetary", "display_currency": doc.pricelist_id.currency_id}'/>
+            </td>
+        </xpath>
+        <xpath expr="//table[2]//td[@name='td_taxes']" position="replace">       
+        </xpath>
+    </template>
+
+    <template id="sale_management.report_saleorder_document_inherit_sale_management" inherit_id="sale.report_saleorder_document">
+        <xpath expr="//div[@name='signature']" position="after">
+            <div t-if="doc.sale_order_option_ids and doc.state in ['draft', 'sent']">
+                <t t-set="has_option_discount" t-value="any(option.discount != 0.0 for option in doc.sale_order_option_ids)" />
+                <h4 name="h_optional_products">
+                    <span>Options</span>
+                </h4>
+                <table name="table_optional_products" class="table table-sm" style="color: black !important;">
+                    <thead>
+                        <tr>
+                            <th name="th_option_name" class="text-left" style="color: black !important;">Description</th>
+                            <th t-if="has_option_discount" name="th_option_discount" groups="product.group_discount_per_so_line" class="text-left" style="color: black !important;">Disc.%</th>
+                            <th name="th_option_price_unit" class="text-right" style="color: black !important;">Unit Price</th>
+                        </tr>
+                    </thead>
+                    <tbody class="sale_tbody">
+                        <tr t-foreach="doc.sale_order_option_ids" t-as="option">
+                            <td name="td_option_name">
+                                <span t-field="option.name"/>
+                            </td>
+                            <td t-if="has_option_discount" name="td_option_discount" groups="product.group_discount_per_so_line">
+                                <strong t-if="option.discount != 0.0" class="text-info" style="color: black !important;">
+                                    <t t-esc="((option.discount % 1) and '%s' or '%d') % option.discount"/>%
+                                </strong>
+                            </td>
+                            <td name="td_option_price_unit">
+                                <strong class="text-right">
+                                    <div t-if="not option.discount" t-field="option.price_unit"/>
+                                    <div t-if="option.discount">
+                                        <t t-esc="doc.convert_price('%.2f' % ((1-option.discount / 100.0) * option.price_unit))"/>
+                                    </div>
+                                </strong>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </xpath>
+    </template>
+
+    <report id="action_report_header_footer"
+            string="Report Header Footer" model="sale.order"
+            report_type="qweb-pdf"
+            paperformat="report_header_footer.paperformat_report"
+            file="report_header_footer.bmair_sale_order_inherit"
+            name="report_header_footer.bmair_sale_order_inherit"
+            menu="False" />
+</odoo>

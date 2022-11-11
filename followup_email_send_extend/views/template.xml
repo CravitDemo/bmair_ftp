@@ -1,0 +1,7 @@
+<odoo>
+    <template id="assets_backend" name="web_account_followup assets backend" inherit_id="web.assets_backend">
+        <xpath expr="." position="inside">
+            <script type="text/javascript" src="/followup_email_send_extend/static/src/js/followup_form_controller.js"></script>
+        </xpath>
+    </template>
+</odoo>

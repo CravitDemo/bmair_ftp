@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_mrp_workorder_serialrestrict_form_inherit" model="ir.ui.view">
+        <field name="name">mrp.workorder.serialrestrict.form.inherit</field>
+        <field name="model">mrp.workorder</field>
+        <field name="inherit_id" ref="mrp_workorder.mrp_workorder_view_form_tablet"/>
+        <field name="arch" type="xml">
+        	<field name="finished_lot_id" position="replace">
+                            <field name="finished_lot_id" context="{'default_production':production_id,'default_product_id': product_id, 'default_company_id': company_id}" domain="[('product_id', '=', product_id)]"/>
+        	</field>
+        </field>
+    </record>
+
+    <!--record id="view_mrp_assign_serial_number_inherit" model="ir.ui.view">
+        <field name="name">mrp.assign.serial.numberform.inherit</field>
+        <field name="model">mrp.production</field>
+        <field name="inherit_id" ref="mrp.mrp_production_form_view"/>
+        <field name="arch" type="xml">
+        	<field name="user_id" position="after">
+                       <button name="action_generate_backorder_wizard" type="object" icon="fa-plus-square" width="0.1" role="img" title="Assign Serial Numbers and split MO" attrs="{'invisible':[('state','!=','confirmed')]}"/>
+
+        	</field>
+        </field>
+    </record-->
+
+</odoo>

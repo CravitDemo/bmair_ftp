@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <template id="template_followup_report_statement_account_email" inherit_id="account_followup.template_followup_report">
+            <xpath expr="//p[hasclass('o_account_reports_contact_info')]//t[@t-if='invoice_address_id.email']" position="replace">
+                <t t-if="invoice_address_id.statement_account_email">
+                    <a t-att-href="'mailto:' + invoice_address_id.statement_account_email">
+                        <i class='fa fa-envelope' /><t t-esc="' ' + invoice_address_id.statement_account_email" />
+                    </a>
+                </t>
+                <t t-if="not invoice_address_id.statement_account_email and invoice_address_id.email">
+                    <a t-att-href="'mailto:' + invoice_address_id.email">
+                        <i class='fa fa-envelope' /><t t-esc="' ' + invoice_address_id.email" />
+                    </a>
+                </t>
+            </xpath>
+        </template>
+
+    </data>
+</odoo>

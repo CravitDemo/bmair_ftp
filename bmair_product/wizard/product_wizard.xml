@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="product_export_wizard_view" model="ir.ui.view">
+        <field name="name">Product export Wizard</field>
+        <field name="model">product.export.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Product Import Export Wizard">
+                <sheet>
+	               	<group>
+		                <group attrs="{'invisible':[('valuation_printed','=',False)]}">
+		                	<field name="export_file" readonly="1" filename="file_name" />
+		                	<field name="file_name" invisible="1"/>
+			                <field name="valuation_printed" invisible="1"/>
+		                </group>
+	                </group>
+                </sheet>
+                <footer>
+                    <button name="product_create_datasheet" string="Odoo Product Export" type="object" class="btn-primary" attrs="{'invisible':[('valuation_printed','=',True)]}"/>
+                    <button string="Cancel" class="btn-default" special="cancel" />
+                </footer>
+            </form>
+        </field>
+    </record>
+    
+    <record id="action_product_export_wizard_new111" model="ir.actions.act_window">
+            <field name="name">Product Export Wizard</field>
+            <field name="res_model">product.export.wizard</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+            <field name="binding_model_id" ref="product.model_product_template"/>
+            <field name="binding_view_types">list</field>
+        </record>
+	
+<!--     <record id="action_product_export_wizard_new111" model="ir.actions.act_window"> -->
+<!--         <field name="name">Product Export Wizard</field> -->
+<!--         <field name="res_model">product.export.wizard</field> -->
+<!--         <field name="view_mode">form</field> -->
+<!--         <field name="target">new</field> -->
+<!--     </record> -->
+
+	<menuitem action="action_product_export_wizard_new111" id="menu_action_product_export_wizard_new111" parent="stock.menu_stock_warehouse_mgmt" sequence="15"/>
+
+</odoo>

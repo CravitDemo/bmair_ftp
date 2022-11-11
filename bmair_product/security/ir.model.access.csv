@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_product_export_wizard,Product.export.wizard,model_product_export_wizard,stock.group_stock_manager,1,1,1,1
+access_external_interface_user,external.interface,model_external_interface,stock.group_stock_manager,1,1,1,1
+access_external_interface_manger,external.interface,model_external_interface,base.group_user,1,0,0,0

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <!-- Sequences for sale.order -->
+        <record id="seq_external_interface" model="ir.sequence">
+            <field name="name">FTP Server</field>
+            <field name="code">external.interface</field>
+            <field name="prefix">PC</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+    </data>
+</odoo>

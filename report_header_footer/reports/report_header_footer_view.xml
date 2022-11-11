@@ -1,0 +1,216 @@
+<?xml version="1.0"?>
+<odoo>
+    <template id="bmair_external_layout_standard_inherit" inherit_id="web.external_layout_standard">
+
+        <div t-attf-class="footer o_standard_footer o_company_#{company.id}_layout" position="replace">
+            <div t-attf-class="footer o_standard_footer o_company_#{company.id}_layout">
+                <style>table,tr,td {font-size: 12px;}</style>
+                <!--                 BMAir Benelux BV -->
+                <t t-if="company.name == 'BMAir Benelux BV'">
+                    <table style="width:100%;border: 1px solid black;" class="col-12">
+                        <tr style="width:100%">
+                            <td style="width:25%">
+                                <span t-field="company.name"/>
+                            </td>
+                            <td style="width:25%">Tel:
+                                <span t-field="company.phone"/>
+                            </td>
+                            <td style="width:25%">KVK: <span t-field="company.company_registry"/></td>
+                            <td style="width:25%" rowspan="3">
+                                <span>Our terms and conditions are<br/>
+                                applicable: www.bmair.com <br></br>
+                                </span>
+                            </td>
+                        </tr>
+
+                        <tr style="width:100%">
+                            <td style="width:25%">
+                                <span t-field="company.street_name"/>
+                                <span t-field="company.street_number"/>
+                            </td>
+                            <td style="width:25%">E:
+                                <span t-field="company.email"/>
+                            </td>
+                            <td style="width:25%">IBAN: NL65RABO0132997428</td>
+
+                        </tr>
+
+                        <tr style="width:100%">
+                            <td style="width:25%">
+                                <span t-field="company.zip"/>
+                                <span t-field="company.city"/><br/>
+                                <span t-field="company.country_id.name"/>
+                            </td>
+                            <td style="width:25%">W:
+                                <span t-field="company.website"/>
+                            </td>
+                            <td style="width:25%">
+                                <span>SWIFT/BIC code: RABONL2U</span>
+                                <span>BTW/VAT Nr.: NL003.310.826B01</span>
+                            </td>
+                        </tr>
+
+                    </table>
+                </t>
+                <!--                 BMAir International BV -->
+
+                <t t-if="company.name == 'BMAir International BV'">
+                    <table style="width:100%;border: 1px solid black;" class="col-12">
+                        <tr style="width:100%">
+
+                            <td style="width:25%">
+                                <span t-field="company.name"/>
+                            </td>
+                            <td style="width:25%">Tel:
+                                <span t-field="company.phone"/>
+                            </td>
+                            <td style="width:25%">KVK: <span t-field="company.company_registry"/></td>
+                            <td style="width:25%" rowspan="3">
+                                <span>Our general <br/>
+                                    terms and conditions are<br/>
+                                    applicable: www.bmair.com <br></br>
+                                </span>
+                            </td>
+                        </tr>
+                        <tr style="width:100%">
+
+                            <td style="width:25%">
+                                <span t-field="company.street_name"/>
+                                <span t-field="company.street_number"/>
+                            </td>
+                            <td style="width:25%">E:
+                                <span t-field="company.email"/>
+                            </td>
+                            <td style="width:25%">IBAN: NL96RABO0132997355</td>
+                        </tr>
+
+                        <tr style="width:100%">
+                            <td style="width:25%">
+                                <span t-field="company.zip"/>
+                                <span t-field="company.city"/><br/>
+                                <span t-field="company.country_id.name"/>
+                            </td>
+                            <td style="width:25%">W:
+                                <span t-field="company.website"/>
+                            </td>
+                            <td style="width:25%">
+                                <span>SWIFT/BIC code: RABONL2U</span>
+                                <span>BTW/VAT Nr.: NL807.660.346B01</span>
+                            </td>
+                        </tr>
+                    </table>
+                </t>
+                <!--                 BMAir Deutschland GmbH & Co. KG -->
+
+                <t t-if="company.name == 'BMAir Deutschland GmbH &amp; Co. KG'">
+                    <table style="width:100%;border: 1px solid black;" class="col-12">
+<!--                    <table style="width:100%; color: #0000FF;">-->
+                        <tr style="width:100%">
+
+                            <td style="width:25%">
+                                <span t-field="company.name"/>
+                            </td>
+                            <td style="width:18%">Tel:
+                                <span t-field="company.phone"/>
+                            </td>
+                            <td style="width:32%">Register court: District court Arnsberg HRA8540</td>
+                            <td style="width:20%" rowspan="3">
+                                <span>Our general <br/>
+                                    terms and conditions<br/>
+                                    can be viewed at: www.bmair.com <br/>
+                                </span>
+                            </td>
+                        </tr>
+                        <tr style="width:100%">
+                            <td style="width:25%">
+                                <span t-field="company.street_name"/>
+                                <span t-field="company.street_number"/>
+                            </td>
+                            <td style="width:18%">E:
+                                <span t-field="company.email"/>
+                            </td>
+                            <td style="width:32%">tax NR.: 303 5804 0883</td>
+                        </tr>
+                        <tr style="width:100%">
+                            <td style="width:25%">
+                                <span t-field="company.zip"/>
+                                <span t-field="company.city"/>
+                            </td>
+                            <td style="width:18%">W:
+                                <span t-field="company.website"/>
+                            </td>
+                            <td style="width:32%">UST-ID Nr.: DE 329 553 650</td>
+                        </tr>
+                        <tr style="width:100%">
+                            <td style="width:25%">
+                                <span t-field="company.country_id.name"/>
+                            </td>
+                            <td style="width:18%"></td>
+                            <td style="width:25%">IBAN: DE 59 4504 0042 0454 5018 00</td>
+                            <td style="width:20%; font-style: italic; font-size: 8px">Managing Director: Robin Veltman / Robbert Boersma</td>
+                        </tr>
+                        <tr style="width:100%">
+                            <td style="width:25%"/>
+                            <td style="width:18%"/>
+                            <td style="width:32%">BIC: COBADEFFXXX</td>
+                            <td style="width:20%"/>
+                        </tr>
+                    </table>
+                </t>
+                <!--                 BMAir France SARL -->
+
+                <t t-if="company.name == 'BMAir France SARL'">
+                    <table style="width:100%;border: 1px solid black;" class="col-12">
+                        <tr style="width:100%">
+                            <td style="width:25%">
+                                <span t-field="company.name"/>
+                            </td>
+                            <td style="width:20%">P: 0750606371 / 0685464354</td>
+                            <td style="width:30%">Bank: CIC</td>
+                            <td style="width:25%" rowspan="4">
+                                Our general conditions are
+                                <br></br>
+                                the following applicable:
+                                <br></br>
+                                www.bmair.com
+                                <br></br>
+                                Siret Nr: 809 934 870 00019
+                                <br></br>
+                            </td>
+                        </tr>
+                        <tr style="width:100%">
+
+                            <td style="width:25%">
+                                <span t-field="company.street_name"/>
+                                <span t-field="company.street_number"/>
+                            </td>
+                            <td style="width:20%">E: commercial@bmair.com</td>
+                            <td style="width:30%">IBAN: FR7630027175330002010900129</td>
+                        </tr>
+                        <tr style="width:100%">
+
+                            <td style="width:25%">
+                                <span t-field="company.zip"/>
+                                <span t-field="company.city"/>
+                            </td>
+                            <td style="width:20%">W: www.bmair.com</td>
+                            <td style="width:30%">BIC: CMCIFRPP</td>
+                        </tr>
+                        <tr style="width:100%">
+
+                            <td style="width:25%">
+                                <span t-field="company.country_id.name"/>
+                            </td>
+                            <td style="width:25%">
+                                <i>Sarl with capital of € 100.000,-</i>
+                            </td>
+                            <td style="width:30%">TVA: FR18809934870</td>
+                        </tr>
+                    </table>
+                </t>
+
+            </div>
+        </div>
+    </template>
+
+</odoo>

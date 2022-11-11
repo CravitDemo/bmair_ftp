@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record model="ir.ui.view" id="res_partner_kanban_view_followup_extend">
+            <field name="name">res.partner.kanban.followup.extend</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.res_partner_kanban_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//t[@t-name='kanban-box']/div/t[1]/t[2]" position="after">
+                    <t t-elif="record.type.raw_value === 'followup'" t-set="placeholder" t-value="'/bmair_account_reminder/static/img/followup.png'"/>
+                </xpath>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="view_partner_form_followup_extend">
+            <field name="name">res.partner.form.followup.extend</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//page[@name='contact_addresses']/field/kanban/templates/t/div/div[1]/t/img[2]" position="after">
+                    <img alt="Followup" t-if="record.type.raw_value === 'followup'" t-att-src='_s + "/bmair_account_reminder/static/img/followup.png"'/>
+                </xpath>
+                <xpath expr="//page[@name='contact_addresses']/field/kanban/templates/t/div/div[1]/t/t" position="attributes">
+                    <attribute name="t-if">record.type.raw_value !== 'invoice' &amp;&amp; record.type.raw_value !== 'delivery' &amp;&amp; record.type.raw_value !== 'followup'</attribute>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>
